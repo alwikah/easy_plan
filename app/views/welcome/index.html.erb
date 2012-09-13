@@ -1,3 +1,27 @@
+<%= javascript_tag do %>
+	$(document).ready(function(){
+		var date = new Date();
+		var d = date.getDay();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		$('#calendar').fullCalendar({
+			header: {
+					left:"prev,next,today",
+					center:"title",
+					right:"month,basicWeek,basicDay"
+				},
+				editable: true,
+				events: [
+				{
+					title: "Un évènement planifié",
+					start: new Date(y, m, d, 10),
+					end: new Date(y,m,d,11)
+				}	
+				]
+		});
+	});
+<% end %>
+
 <h1>Easy Plan</h1>
 
 <p>
@@ -11,3 +35,5 @@ Dans un premier temps, l'outil en question sera un simple agenda correspondant �
 <p>
 Enfin, nous n'en sommes pas encore là, évidemment. Pour le moment, je vais réaliser une maquette sur papier et te demander ce que tu en penses. Il faudrait quand même que tu me donnes la liste des activités, et éventuellement des exemples de fichiers excel dont tu te sers pour le moment.
 </p>
+
+<div id='calendar'></div>
