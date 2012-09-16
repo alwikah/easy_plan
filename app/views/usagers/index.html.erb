@@ -1,0 +1,7 @@
+INDEX USAGERS
+<ul>
+<% @usagers.each do |usager| %>
+	<li><%= link_to usager.full_name, usager_path(usager) %>-<%= link_to 'editer', edit_usager_path(usager) %></li>	
+<% end %>
+</ul>
+<%= link_to 'Ajouter un Usager', new_usager_path %>

@@ -1,0 +1,16 @@
+<%= form_for @usager do |f| %>
+	<div>
+		<label>Prénom</label>
+		<%= f.text_field :given_name %>
+	</div>
+	<div>
+		<label>Nom</label>
+		<%= f.text_field :family_name %>
+	</div>
+	<div>
+		<label>Date de naissance</label>
+		<%= f.text_field :birth_date %>
+		<legend>Format : aaaa-mm-jj</legend>
+	</div>
+	<%= f.submit 'Enregistrer' %>
+<% end %>
