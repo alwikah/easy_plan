@@ -35,6 +35,8 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
-  gem 'heroku'
 
+gem 'debugger'
+gem 'heroku'
+
+gem "ruby-debug-ide", "~> 0.4.16"

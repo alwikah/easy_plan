@@ -1,8 +1,10 @@
 #    Postgresql database.yml file
 common: &common
   adapter: postgresql
-  username: 'berliblog'
-  password: 'berliblog'
+  #username: 'berliblog'
+  #password: 'berliblog'
+  username: postgres
+  password: Lullaby
   host: localhost
   pool: 5
 

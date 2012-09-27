@@ -1,16 +1,18 @@
 <%= form_for @usager do |f| %>
-	<div>
+	<div class='attribute'>
 		<label>Prénom</label>
 		<%= f.text_field :given_name %>
 	</div>
-	<div>
+	<div class='attribute'>
 		<label>Nom</label>
 		<%= f.text_field :family_name %>
 	</div>
-	<div>
+	<div class='attribute'>
 		<label>Date de naissance</label>
 		<%= f.text_field :birth_date %>
-		<legend>Format : aaaa-mm-jj</legend>
+		<pre>(Format : aaaa-mm-jj)</pre>
 	</div>
-	<%= f.submit 'Enregistrer' %>
+	<%= f.submit 'Enregistrer', :class => 'button' %>
 <% end %>
+
+<%= link_to 'Retour à la liste', usagers_path %>

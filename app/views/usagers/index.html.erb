@@ -1,7 +1,16 @@
-INDEX USAGERS
-<ul>
-<% @usagers.each do |usager| %>
-	<li><%= link_to usager.full_name, usager_path(usager) %>-<%= link_to 'editer', edit_usager_path(usager) %></li>	
-<% end %>
-</ul>
-<%= link_to 'Ajouter un Usager', new_usager_path %>
+<%= stylesheet_link_tag "usagers" %>
+
+<h1>Liste des usagers</h1>
+<table>
+  <tbody>
+    <% @usagers.each do |usager| %>
+    	<tr>
+          <td><%= link_to usager.full_name, usager_path(usager) %></td>
+          <td><%= link_to 'Editer', edit_usager_path(usager) %></td>
+          <td><%= link_to 'Supprimer', usager_path(usager), :method => :delete %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Ajouter un Usager', new_usager_path, :class => 'button' %>
