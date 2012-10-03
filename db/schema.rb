@@ -11,12 +11,37 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915151521) do
+ActiveRecord::Schema.define(:version => 20120928150351) do
+
+  create_table "calendars_events", :force => true do |t|
+    t.string   "title"
+    t.time     "start_date"
+    t.time     "end_date"
+    t.integer  "owner_id"
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "usagers", :force => true do |t|
     t.string "given_name"
     t.string "family_name"
     t.date   "birth_date"
+  end
+
+  create_table "usagers_daily_routines", :force => true do |t|
+    t.string   "day"
+    t.string   "presence"
+    t.string   "meal"
+    t.integer  "routine_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "usagers_routines", :force => true do |t|
+    t.integer  "owner_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

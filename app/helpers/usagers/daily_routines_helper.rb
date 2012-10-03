@@ -1,0 +1,2 @@
+module Usagers::DailyRoutinesHelper
+end

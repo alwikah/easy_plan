@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: Evenement1
+  start_date: 2012-09-26 14:30:00
+  end_date: 2012-09-26 16:00:00
+  owner: one (Usager)
+  type: Calendars::PonctualEvent
+
+two:
+  title: Evenement2
+  start_date: 2012-09-27 16:30:00
+  end_date: 2012-09-27 18:00:00
+  owner: two (Usager)
+  type: Calendars::PonctualEvent

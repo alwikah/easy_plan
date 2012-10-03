@@ -1,0 +1,2 @@
+module Usagers::RoutinesHelper
+end

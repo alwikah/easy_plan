@@ -1,0 +1,33 @@
+<%= form_for(@usagers_daily_routine) do |f| %>
+  <% if @usagers_daily_routine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usagers_daily_routine.errors.count, "error") %> prohibited this usagers_daily_routine from being saved:</h2>
+
+      <ul>
+      <% @usagers_daily_routine.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :day %><br />
+    <%= f.text_field :day %>
+  </div>
+  <div class="field">
+    <%= f.label :presence %><br />
+    <%= f.text_field :presence %>
+  </div>
+  <div class="field">
+    <%= f.label :meal %><br />
+    <%= f.text_field :meal %>
+  </div>
+  <div class="field">
+    <%= f.label :routine_id %><br />
+    <%= f.number_field :routine_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

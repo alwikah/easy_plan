@@ -1,0 +1,29 @@
+<h1>Listing usagers_daily_routines</h1>
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Presence</th>
+    <th>Meal</th>
+    <th>Routine</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @usagers_daily_routines.each do |usagers_daily_routine| %>
+  <tr>
+    <td><%= usagers_daily_routine.day %></td>
+    <td><%= usagers_daily_routine.presence %></td>
+    <td><%= usagers_daily_routine.meal %></td>
+    <td><%= usagers_daily_routine.routine_id %></td>
+    <td><%= link_to 'Show', usagers_daily_routine %></td>
+    <td><%= link_to 'Edit', edit_usagers_daily_routine_path(usagers_daily_routine) %></td>
+    <td><%= link_to 'Destroy', usagers_daily_routine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Daily routine', new_usagers_daily_routine_path %>

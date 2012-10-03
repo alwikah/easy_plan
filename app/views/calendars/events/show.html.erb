@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @calendars_event.title %>
+</p>
+
+<p>
+  <b>Start date:</b>
+  <%= @calendars_event.start_date %>
+</p>
+
+<p>
+  <b>End date:</b>
+  <%= @calendars_event.end_date %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @calendars_event.owner_id %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @calendars_event.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_calendars_event_path(@calendars_event) %> |
+<%= link_to 'Back', calendars_events_path %>

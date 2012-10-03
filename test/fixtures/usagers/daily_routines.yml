@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day: MyString
+  presence: MyString
+  meal: MyString
+  routine_id: 1
+
+two:
+  day: MyString
+  presence: MyString
+  meal: MyString
+  routine_id: 1

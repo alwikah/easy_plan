@@ -1,4 +1,10 @@
 EasyPlan::Application.routes.draw do
+  namespace :usagers do resources :daily_routines end
+
+  namespace :usagers do resources :routines end
+
+  namespace :calendars do resources :events end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

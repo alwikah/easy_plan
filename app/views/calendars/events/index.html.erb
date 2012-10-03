@@ -1,0 +1,31 @@
+<h1>Listing calendars_events</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Owner</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendars_events.each do |calendars_event| %>
+  <tr>
+    <td><%= calendars_event.title %></td>
+    <td><%= calendars_event.start_date %></td>
+    <td><%= calendars_event.end_date %></td>
+    <td><%= calendars_event.owner_id %></td>
+    <td><%= calendars_event.type %></td>
+    <td><%= link_to 'Show', calendars_event_path(calendars_event) %></td>
+    <td><%= link_to 'Edit', edit_calendars_event_path(calendars_event) %></td>
+    <td><%= link_to 'Destroy', calendars_events_path(calendars_event), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Event', new_calendars_event_path %>
