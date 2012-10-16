@@ -36,7 +36,6 @@ gem 'jquery-rails'
 
 # To use debugger
 
-gem 'debugger'
 gem 'heroku'
 
-gem "ruby-debug-ide", "~> 0.4.16"
+gem 'pry'

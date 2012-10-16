@@ -30,7 +30,7 @@ class Usagers::DailyRoutineTest < ActiveSupport::TestCase
     assert !dr.errors[:presence].empty?
     assert !dr.errors[:meal].empty?
 
-    dr.day = Usagers::DailyRoutine::AcceptablePresences.first
+    dr.presence = Usagers::DailyRoutine::AcceptablePresences.first
 
     dr.save
     assert !dr.valid?
@@ -41,7 +41,7 @@ class Usagers::DailyRoutineTest < ActiveSupport::TestCase
 
     assert !dr.errors[:meal].empty?
 
-    dr.day = Usagers::DailyRoutine::AcceptableMeals.first
+    dr.meal = Usagers::DailyRoutine::AcceptableMeals.first
 
     dr.save
     assert dr.valid?
