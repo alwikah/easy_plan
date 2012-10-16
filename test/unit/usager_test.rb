@@ -22,4 +22,14 @@ class UsagerTest < ActiveSupport::TestCase
 
     assert Usagers::Routine.where(id: id_routine).empty?
   end
+
+  test 'should not create a Usager if given_name and/or family_name is/are missing' do
+    u2 = Usager.create(given_name: 'Given name', family_name: '', birth_date: '1975-07-01')
+    u3 = Usager.create(given_name: '', family_name: '', birth_date: '1975-07-01')
+    u1 = Usager.create(given_name: '', family_name: 'Mimo', birth_date: '1975-07-01')
+
+    assert !u1.valid?
+    assert !u2.valid?
+    assert !u3.valid?
+  end
 end

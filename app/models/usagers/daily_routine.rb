@@ -9,7 +9,10 @@ class Usagers::DailyRoutine < ActiveRecord::Base
 
   belongs_to :routine, :class_name => 'Usagers::Routine'#, :dependent => :destroy
 
-  validates :routine, :presence => true
+  validates :routine,   :presence => true
+  validates :day,       :presence => true
+  validates :presence,  :presence => true
+
   validate :acceptable_day
   validate :acceptable_presence
   validate :acceptable_meal

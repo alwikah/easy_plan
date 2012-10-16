@@ -1,0 +1,19 @@
+<%#
+    For this partial you should specify following locals :
+        - daily_routine
+%>
+SHOW de daily_routine
+<div>
+  <h4><%= daily_routine.day %></h4>
+  <% if daily_routine.presence %>
+      <div>
+        <%= daily_routine.presence %>
+      </div>
+  <% end %>
+
+  <% if daily_routine.meal %>
+      <div>
+        <%= daily_routine.meal %>
+      </div>
+  <% end %>
+</div>

@@ -1,9 +1,12 @@
 <%= stylesheet_link_tag 'usagers' %>
 
-<h2><%= @usager.full_name %></h2>
-<div>
-	<div>
-		<label>Date de naissance :</label>
-		<span><%= @usager.birth_date || "Pas de date enregistrée" %></span>
-	</div>
+<div class="usager">
+  <h2><%= @usager.full_name %></h2>
+  <div class="attributes">
+    <div>
+      <label>Date de naissance :</label>
+      <span><%= @usager.birth_date || "Pas de date enregistrée" %></span>
+    </div>
+    <%= render partial: 'usagers/routines/routine', locals: {routine: @usager.routine} if @usager.routine %>
+  </div>
 </div>

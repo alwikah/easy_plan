@@ -38,3 +38,22 @@ table{
     width: 200px;
   }
 }
+
+.daily_routine_attributes{
+  display: table-cell;
+  padding-bottom: 20px;
+  select{
+    min-width: 125px;
+  }
+}
+
+
+// For usager show view
+.usager{
+  h2{
+    text-align: center;
+  }
+  .attributes{
+
+  }
+}

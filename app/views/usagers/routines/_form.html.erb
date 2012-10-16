@@ -1,21 +1,26 @@
-<%= form_for(@usagers_routine) do |f| %>
-  <% if @usagers_routine.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usagers_routine.errors.count, "error") %> prohibited this usagers_routine from being saved:</h2>
+<%#
+   For this partial, you should specify following locals :
+        - owner (Usager)
+        - form
+%>
 
-      <ul>
-      <% @usagers_routine.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+
+<%= fields_for :routine do |routine_form| %>
+    <% if routine && routine.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(routine.errors.count, "error") %> prohibited this usagers_routine from being saved:</h2>
+
+          <ul>
+          <% routine.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <% Usagers::DailyRoutine::AcceptableDays.each do |day| %>
+            <%= render partial: 'usagers/daily_routines/form', locals: {day: day} %>
+        <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :owner_id %><br />
-    <%= f.number_field :owner_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

@@ -1,0 +1,8 @@
+<%#
+    For this partial you should specify the following locals :
+        - routine
+%>
+SHOW de routine
+<% routine.daily_routines.each do |daily_routine| %>
+    <%= render partial: 'usagers/daily_routines/daily_routine', locals: {daily_routine: daily_routine} %>
+<% end %>
