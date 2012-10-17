@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class UsagersController < ApplicationController
+  include UsagersHelper
+
   def index
     @usagers = Usager.all
     respond_to do |format|
@@ -22,17 +24,7 @@ class UsagersController < ApplicationController
   end
 
   def create
-
-    usager_params = params[:usager]
-    if usager_params.has_key?(:routine_attributes) && usager_params[:routine_attributes].has_key?(:daily_routines_attributes)
-      dr_attr = []
-      usager_params[:routine_attributes][:daily_routines_attributes].each do |daily_routine_hash|
-        dr_attr << daily_routine_hash unless daily_routine_hash[:day].blank? || daily_routine_hash[:presence].blank?
-      end
-      usager_params[:routine_attributes][:daily_routines_attributes] = dr_attr
-    end
-
-    usager = Usager.create(usager_params)
+    usager = Usager.create(clean_params(params[:usager]))
 
     respond_to do |format|
       if usager.valid?

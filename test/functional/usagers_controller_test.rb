@@ -46,4 +46,37 @@ class UsagersControllerTest < ActionController::TestCase
 
     assert_redirected_to usagers_path
   end
+
+  # ------------------------------------------------------
+  # ------------- Routines and DailyRoutines -------------
+  # ------------------------------------------------------
+
+  test 'should create a usager with a routine that has daily_routines set' do
+    assert_difference('Usagers::Routine.count + Usagers::DailyRoutine.count', 3) do
+      post :create, usager: {
+          given_name: 'Billy', family_name: 'Helliot', routine_attributes: {
+              daily_routines_attributes: [
+                  {day: Usagers::DailyRoutine::AcceptableDays.first, presence: Usagers::DailyRoutine::AcceptablePresences.sample, meal: Usagers::DailyRoutine::AcceptableMeals.sample},
+                  {day: Usagers::DailyRoutine::AcceptableDays[2], presence: Usagers::DailyRoutine::AcceptablePresences.sample, meal: Usagers::DailyRoutine::AcceptableMeals.sample}
+              ]
+          }
+      }
+    end
+  end
+
+  test 'should create a usager with a routine that has daily_routines set, without invalid daily_routines sent' do
+    assert_difference('Usagers::Routine.count + Usagers::DailyRoutine.count', 3) do
+      post :create, usager: {
+          given_name: 'Billy', family_name: 'Helliot', routine_attributes: {
+              daily_routines_attributes: [
+                  {day: Usagers::DailyRoutine::AcceptableDays[-1], presence: Usagers::DailyRoutine::AcceptablePresences.sample, meal: Usagers::DailyRoutine::AcceptableMeals.sample},
+                  {day: Usagers::DailyRoutine::AcceptableDays[-2], presence: Usagers::DailyRoutine::AcceptablePresences.sample, meal: Usagers::DailyRoutine::AcceptableMeals.sample},
+                  {day: '', presence: Usagers::DailyRoutine::AcceptablePresences.sample, meal: Usagers::DailyRoutine::AcceptableMeals.sample},
+                  {day: Usagers::DailyRoutine::AcceptableDays[2], presence: '', meal: Usagers::DailyRoutine::AcceptableMeals.sample}
+              ]
+          }
+      }
+    end
+  end
+
 end

@@ -39,3 +39,5 @@ gem 'jquery-rails'
 gem 'heroku'
 
 gem 'pry'
+
+gem "test-unit", "=2.5.0"
