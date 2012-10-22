@@ -1,0 +1,10 @@
+<% @daily_routines_hash.each do |day, daily_routines| %>
+    <h2><%= day %></h2>
+    <p>
+    <ul>
+      <% daily_routines.each do |daily_r| %>
+          <li><%= daily_r.owner.full_name %></li>
+      <% end %>
+    </ul>
+    </p>
+<% end %>

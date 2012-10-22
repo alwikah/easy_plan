@@ -3,6 +3,8 @@ EasyPlan::Application.routes.draw do
 
   namespace :calendars do resources :events end
 
+  match 'agenda' => 'agenda#agenda'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
