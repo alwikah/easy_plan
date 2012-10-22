@@ -45,5 +45,7 @@ class Usagers::DailyRoutineTest < ActiveSupport::TestCase
 
     dr.save
     assert dr.valid?
+
+    assert dr.owner == usager
   end
 end

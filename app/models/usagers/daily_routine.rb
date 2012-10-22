@@ -8,6 +8,7 @@ class Usagers::DailyRoutine < ActiveRecord::Base
   attr_accessible :day, :meal, :presence, :routine_id, :routine
 
   belongs_to :routine, :class_name => 'Usagers::Routine'#, :dependent => :destroy
+  has_one :owner, :through => :routine
 
   validates :routine,   :presence => true
   validates :day,       :presence => true
