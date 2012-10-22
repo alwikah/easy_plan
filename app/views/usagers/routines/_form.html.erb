@@ -1,9 +1,12 @@
 <%#
    For this partial, you should specify following locals :
-        - owner (Usager)
-        - form
+        - routine
 %>
 
+<%
+   routine ||= nil
+   daily_routines = Usagers::RoutinesHelper.weekly_routine(routine)
+%>
 
 <%= fields_for :routine do |routine_form| %>
     <% if routine && routine.errors.any? %>
@@ -11,16 +14,16 @@
           <h2><%= pluralize(routine.errors.count, "error") %> prohibited this usagers_routine from being saved:</h2>
 
           <ul>
-          <% routine.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
+            <% routine.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
           </ul>
         </div>
     <% end %>
 
     <div class="field">
-        <% Usagers::DailyRoutine::AcceptableDays.each do |day| %>
-            <%= render partial: 'usagers/daily_routines/form', locals: {day: day} %>
-        <% end %>
+      <% daily_routines.each do |daily_routine| %>
+          <%= render partial: 'usagers/daily_routines/form', locals: {daily_routine: daily_routine} %>
+      <% end %>
     </div>
 <% end %>

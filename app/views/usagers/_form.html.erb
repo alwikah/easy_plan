@@ -22,11 +22,11 @@
     <h3>Planning</h3>
     <div class="attribute">
       <div>
-        <%= render partial: 'usagers/routines/form', locals: {routine: @usager.routine, form: f} %>
+        <%= render partial: 'usagers/routines/form', locals: {routine: @usager.routine} %>
       </div>
     </div>
     
 	<%= f.submit 'Enregistrer', :class => 'button' %>
 <% end %>
 
-<%= link_to 'Retour à la liste', usagers_path %>
+<%= render :partial => 'usagers/links' %>

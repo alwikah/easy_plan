@@ -18,4 +18,12 @@ module Usagers::RoutinesHelper
     end
     params
   end
+
+  def self.weekly_routine(routine)
+    return Usagers::DailyRoutine::AcceptableDays.collect{|day| Usagers::DailyRoutine.new(day: day)} if routine.blank?
+    Usagers::DailyRoutine::AcceptableDays.collect do |day|
+      temp = routine.daily_routines.select{|dr| dr.day == day}.try(:first)
+      (temp.blank? ? Usagers::DailyRoutine.new(day: day) : temp)
+    end
+  end
 end

@@ -1,11 +1,25 @@
 <%#
     For this partial you should specify following locals :
         - day
+        - daily_routine
+
+%>
+
+<%
+   daily_routine ||= nil
+
+   if daily_routine.blank?
+     presence, meal = '', ''
+   else
+     presence = daily_routine.presence
+     meal = daily_routine.meal
+     day = daily_routine.day
+   end
 %>
 
 <div class="daily_routine_attributes">
   <h4><%= day %></h4>
   <%= hidden_field_tag 'usager[routine_attributes][daily_routines_attributes][][day]', day %>
-  <%= select_tag 'usager[routine_attributes][daily_routines_attributes][][presence]', options_for_select(Usagers::DailyRoutine::AcceptablePresences), :include_blank => true %>
-  <%= select_tag 'usager[routine_attributes][daily_routines_attributes][][meal]', options_for_select(Usagers::DailyRoutine::AcceptableMeals), :include_blank => true %>
+  <%= select_tag 'usager[routine_attributes][daily_routines_attributes][][presence]', options_for_select(Usagers::DailyRoutine::AcceptablePresences, presence), :include_blank => true %>
+  <%= select_tag 'usager[routine_attributes][daily_routines_attributes][][meal]', options_for_select(Usagers::DailyRoutine::AcceptableMeals, meal), :include_blank => true %>
 </div>

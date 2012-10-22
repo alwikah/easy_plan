@@ -46,10 +46,10 @@ class UsagersController < ApplicationController
   def update
     @usager = Usager.find(params[:id])
     respond_to do |format|
-      if @usager.update_attributes(params[:usager])
+      if @usager.update_attributes(clean_params(params[:usager]))
         format.html{ redirect_to usager_path(@usager) }
       else
-        format.html{ redirect_to edit_usager(@usager) }
+        format.html{ redirect_to edit_usager_path(@usager) }
       end
     end
 
