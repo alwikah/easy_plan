@@ -1,0 +1,33 @@
+table{
+
+  margin-left:    auto;
+  margin-right:   auto;
+  margin-bottom:  20px;
+  margin-top:     20px;
+
+  min-width: 90%;
+  border: solid #dff7f4 1px;
+
+  tr{
+    /*border: none;*/
+
+    td{
+      text-align: center;
+    }
+
+    td:first-child{
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+  }
+  th {
+    background: #dff7f4;
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  tr:nth-child(even) {background: #dff7f4 }
+  tr:nth-child(odd) {background: white}
+
+}

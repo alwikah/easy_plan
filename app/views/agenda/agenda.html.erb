@@ -1,10 +1,43 @@
-<% @daily_routines_hash.each do |day, daily_routines| %>
-    <h2><%= day %></h2>
-    <p>
-    <ul>
-      <% daily_routines.each do |daily_r| %>
-          <li><%= daily_r.owner.full_name %></li>
-      <% end %>
-    </ul>
-    </p>
-<% end %>
+<%= stylesheet_link_tag 'agenda' %>
+
+<table>
+  <thead>
+  <th></th>
+  <th>Matin</th>
+  <th>Midi</th>
+  <th>Après-midi</th>
+  </thead>
+  <tbody>
+  <% @daily_routines_hash.each do |day, day_parts_hash| %>
+      <tr>
+        <td><%= day %></td>
+        <td>
+          <ul>
+            <% day_parts_hash[:morning].each do |daily_r| %>
+                <li><%= daily_r.owner.full_name %></li>
+            <% end %>
+
+          </ul>
+        </td>
+
+        <td>
+          <ul>
+            <% day_parts_hash[:noon].each do |daily_r| %>
+                <li><%= daily_r.meal == Usagers::DailyRoutine::AcceptableMeals.first ? daily_r.owner.full_name : "#{daily_r.owner.full_name} (#{daily_r.meal})" %></li>
+            <% end %>
+          </ul>
+        </td>
+
+        <td>
+          <ul>
+            <% day_parts_hash[:afternoon].each do |daily_r| %>
+                <li><%= daily_r.owner.full_name %></li>
+            <% end %>
+          </ul>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Liste des usagers', usagers_path %>
